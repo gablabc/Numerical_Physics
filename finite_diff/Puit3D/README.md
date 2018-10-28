@@ -41,5 +41,5 @@ Enjoy your animations ;)
 
 ![Alt Text](https://github.com/gablabc/Numerical_Physics/blob/master/finite_diff/Puit3D/pictures3D/animation2.gif)
 ![Alt Text](https://github.com/gablabc/Numerical_Physics/blob/master/finite_diff/Puit3D/pictures3D/circle_angle.gif)
-![Alt Text](https://github.com/gablabc/Numerical_Physics/blob/master/finite_diff/Puit3D/pictures3D/circle_top.gif)!
-[Alt Text](https://github.com/gablabc/Numerical_Physics/blob/master/finite_diff/Puit3D/pictures3D/flower_top.gif)
+![Alt Text](https://github.com/gablabc/Numerical_Physics/blob/master/finite_diff/Puit3D/pictures3D/circle_top.gif)
+![Alt Text](https://github.com/gablabc/Numerical_Physics/blob/master/finite_diff/Puit3D/pictures3D/flower_top.gif)
