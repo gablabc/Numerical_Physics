@@ -12,9 +12,11 @@ The normal vector of the surface can be computed by uing a parametric surface
 <a href="http://www.codecogs.com/eqnedit.php?latex=\Vec{r}=(x,&space;y,&space;z(x&space;,y)))" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\Vec{r}=(x,&space;y,&space;z(x&space;,y)))" title="\Vec{r}=(x, y, z(x ,y)))" /></a>
  
  Then calculating the non-normalized normal vector
+ 
 <a href="http://www.codecogs.com/eqnedit.php?latex=\Vec{n}&space;=&space;\frac{\delta&space;\Vec{r}}{\delta&space;x}&space;\times&space;\frac{\delta&space;\Vec{r}}{\delta&space;y}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\Vec{n}&space;=&space;\frac{\delta&space;\Vec{r}}{\delta&space;x}&space;\times&space;\frac{\delta&space;\Vec{r}}{\delta&space;y}" title="\Vec{n} = \frac{\delta \Vec{r}}{\delta x} \times \frac{\delta \Vec{r}}{\delta y}" /></a>
 
 And finally normalizing
+
 <a href="http://www.codecogs.com/eqnedit.php?latex=\hat{n}=\frac{\Vec{n}}{||\Vec{n}||}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\hat{n}=\frac{\Vec{n}}{||\Vec{n}||}" title="\hat{n}=\frac{\Vec{n}}{||\Vec{n}||}" /></a>
 
 
@@ -40,6 +42,7 @@ convert delay -2 -loop 0 `ls -v *.jpg` my_animation.gif
 Enjoy your animations ;)
 
 ![Alt Text](https://github.com/gablabc/Numerical_Physics/blob/master/finite_diff/Puit3D/pictures3D/animation2.gif)
+![Alt Text](https://github.com/gablabc/Numerical_Physics/blob/master/finite_diff/Puit3D/pictures3D/flower_top.gif)
 ![Alt Text](https://github.com/gablabc/Numerical_Physics/blob/master/finite_diff/Puit3D/pictures3D/circle_angle.gif)
 ![Alt Text](https://github.com/gablabc/Numerical_Physics/blob/master/finite_diff/Puit3D/pictures3D/circle_top.gif)
-![Alt Text](https://github.com/gablabc/Numerical_Physics/blob/master/finite_diff/Puit3D/pictures3D/flower_top.gif)
+
