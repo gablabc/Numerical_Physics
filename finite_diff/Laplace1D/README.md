@@ -1,7 +1,7 @@
 # 1D Laplace equation
 The equation is the following
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\frac{\delta^2f(x)}{\delta&space;x^2}&space;=&space;\rho(x)&space;\,&space;\,&space;\,&space;\,&space;\forall&space;x&space;\in&space;[0,&space;L]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{d^2f(x)}{d&space;x^2}&space;=&space;\rho(x)&space;\,&space;\,&space;\,&space;\,&space;\forall&space;x&space;\in&space;[0,&space;L]" title="\frac{d^2f(x)}{d x^2} = \rho(x) \, \, \, \, \forall x \in [0, L]" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\frac{d^2f(x)}{d&space;x^2}&space;=&space;\rho(x)&space;\,&space;\,&space;\,&space;\,&space;\forall&space;x&space;\in&space;[0,&space;L]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{d^2f(x)}{d&space;x^2}&space;=&space;\rho(x)&space;\,&space;\,&space;\,&space;\,&space;\forall&space;x&space;\in&space;[0,&space;L]" title="\frac{d^2f(x)}{d x^2} = \rho(x) \, \, \, \, \forall x \in [0, L]" /></a>
 
 To solve this equation numerically, one must discretize the set [0, L] so that x can take a finite nuber of values. Let N be an integer then we have
 
