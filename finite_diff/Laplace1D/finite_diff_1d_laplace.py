@@ -72,14 +72,24 @@ def solveFiniteDiff(L = 1, N = 100, conditions = [['dirichlet', 1], ['dirichlet'
     return mesh, spsolve(A, b)
 
 if __name__ == '__main__':
+    # plot a single graph
+    x, f = solveFiniteDiff(conditions = [['dirichlet', 0], ['newmann', 1]])
+    plt.figure(1)
+    plt.plot(x, f)
+    plt.xlabel('x')
+    plt.ylabel('f(x)')
+    plt.title('Numerical Solution of Newmann equation')
+    
+    # plot error for multiple N
     N = np.logspace(1, 3).astype(int)
     errors = np.zeros((N.shape))
     
     for i in range(N.size):
         x, f = solveFiniteDiff(N = N[i], conditions = [['dirichlet', 0], ['newmann', 1]])
         errors[i] = trapz(np.abs(x**3 / 3 - f), dx = 1 / N[i])
-        
-    plt.plot(N, errors)
-    plt.xlabel("N")
-    plt.ylabel("error L1")
-    plt.xscale("log")
+    
+    plt.figure(2)
+    plt.plot(np.log(N), np.log(errors))
+    plt.xlabel("log(N)")
+    plt.ylabel("log(error L1)")
+    plt.title('error as a function of discretization')
