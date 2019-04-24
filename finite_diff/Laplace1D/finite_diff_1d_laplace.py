@@ -89,7 +89,7 @@ if __name__ == '__main__':
         errors[i] = trapz(np.abs(x**3 / 3 - f), dx = 1 / N[i])
     
     plt.figure(2)
-    plt.plot(np.log(N), np.log(errors))
-    plt.xlabel("log(N)")
-    plt.ylabel("log(error L1)")
+    plt.loglog(N, errors)
+    plt.xlabel("N")
+    plt.ylabel("error L1")
     plt.title('error as a function of discretization')
