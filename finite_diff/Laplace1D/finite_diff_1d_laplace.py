@@ -79,6 +79,7 @@ if __name__ == '__main__':
     plt.xlabel('x')
     plt.ylabel('f(x)')
     plt.title('Numerical Solution of Newmann equation')
+    plt.show()
     
     # plot error for multiple N
     N = np.logspace(1, 3).astype(int)
