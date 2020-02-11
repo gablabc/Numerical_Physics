@@ -1,37 +1,43 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Nov 30 00:04:36 2018
-
-@author: gabriel
-"""
 
 import numpy as np
 from scipy.sparse import csc_matrix
 from scipy.sparse.linalg import spsolve
-from scipy.integrate import trapz
 import matplotlib.pyplot as plt
-
-# solve laplace equation 
-# laplacien F(x) = rho(x)
 
 def rho(x):
     return 2 * x
 
-def solveFiniteDiff(L = 1, N = 100, conditions = [['dirichlet', 1], ['dirichlet', 1]]):
-    # x \in [0, L]
+def solveFiniteDiff(L = 1, N = 100, conditions = [['dirichlet', 1], ['dirichlet', 1]], func = rho):
+    """
+    This function solves the system
+    d^2f(x)/dx^2 = rho(x) for all x in [0, L]
+    
+    __Inputs__
+    - L      (length of the interval)
+    - N      (number of points in the mesh)
+    - conditions list
+    - func   (function f in the equation)
+
+    __Outputs__
+    - list of x in mesh
+    - values of f(x)
+
+    the conditions lists is structured as follow
+    [['condition name', values] , ['condition name', values']] 
+
+    where the condition name can be dirichlet newmann or robin
+    """
     h = L / N
     mesh = np.linspace(0, L, N)
-    
-    # build matrix
-    #    A f = b
     
     b =  h**2 * rho(mesh)
     Adata = []
     Arow = []
     Acol = []
     
-    # border contitions
+    # Border conditions
     # x = 0
     if conditions[0][0] == 'dirichlet':
         Adata.append(1), Arow.append(0), Acol.append(0)
@@ -54,43 +60,21 @@ def solveFiniteDiff(L = 1, N = 100, conditions = [['dirichlet', 1], ['dirichlet'
         Adata.append(1), Arow.append(N - 1), Acol.append(N - 1)        
         b[N - 1] = h* conditions[1][1]    
     elif conditions[1][0] == 'robin':
-        Adata.append(conditions[1][1] * h + conditions[1][2]), Arow.append(N - 1), Acol.append(N - 1)
+        Adata.append(conditions[1][1] * h + conditions[1][2]), \
+                        Arow.append(N - 1), Acol.append(N - 1)
         Adata.append(conditions[1][2]), Arow.append(N - 1), Acol.append(N - 2)        
         b[N - 1] = h        
         
        
     
-    # domain assembly
+    # Domain assembly
     for col in range(1, N - 1):
         Adata.append(1), Arow.append(col), Acol.append(col - 1)
         Adata.append(-2), Arow.append(col),  Acol.append(col)
         Adata.append(1), Arow.append(col), Acol.append(col + 1)
     
+    # Assemble A as a sparse matrix
     A = csc_matrix((Adata, (Arow, Acol)), shape = (N, N))
         
-    # inverse matrix
+    # Solve the system
     return mesh, spsolve(A, b)
-
-if __name__ == '__main__':
-    # plot a single graph
-    x, f = solveFiniteDiff(conditions = [['dirichlet', 0], ['newmann', 1]])
-    plt.figure(1)
-    plt.plot(x, f)
-    plt.xlabel('x')
-    plt.ylabel('f(x)')
-    plt.title('Numerical Solution of Newmann equation')
-    plt.show()
-    
-    # plot error for multiple N
-    N = np.logspace(1, 3).astype(int)
-    errors = np.zeros((N.shape))
-    
-    for i in range(N.size):
-        x, f = solveFiniteDiff(N = N[i], conditions = [['dirichlet', 0], ['newmann', 1]])
-        errors[i] = trapz(np.abs(x**3 / 3 - f), dx = 1 / N[i])
-    
-    plt.figure(2)
-    plt.loglog(N, errors)
-    plt.xlabel("N")
-    plt.ylabel("error L1")
-    plt.title('error as a function of discretization')
