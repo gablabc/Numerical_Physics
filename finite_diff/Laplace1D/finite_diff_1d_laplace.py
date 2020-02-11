@@ -18,7 +18,7 @@ def solveFiniteDiff(L = 1, N = 100, conditions = [['dirichlet', 1], ['dirichlet'
     - L      (length of the interval)
     - N      (number of points in the mesh)
     - conditions list
-    - func   (function f in the equation)
+    - func   (function rho in the equation)
 
     __Outputs__
     - list of x in mesh

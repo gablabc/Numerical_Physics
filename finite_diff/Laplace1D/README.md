@@ -6,7 +6,7 @@ The equation is the following
 
 To solve this equation numerically, one must discretize the set [0, L] so that x can take a finite number of values. Let N be an integer, then we have
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=x_i&space;=&space;\frac{L}{N}&space;\,&space;\,&space;\,&space;i=&space;0,&space;1,&space;2,3&space;...&space;N" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_i&space;=&space;\frac{L}{N}&space;\,&space;\,&space;\,&space;i=&space;0,&space;1,&space;2,3&space;...&space;N" title="x_i = \frac{Li}{N} \, \, \, i= 0, 1, 2,3 ... N" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=x_i&space;=&space;\frac{L}{N}&space;\,&space;\,&space;\,&space;i=&space;0,&space;1,&space;2,3&space;...&space;N" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_i&space;=&space;\frac{Li}{N}&space;\,&space;\,&space;\,&space;i=&space;0,&space;1,&space;2,3&space;...&space;N" title="x_i = \frac{Li}{N} \, \, \, i= 0, 1, 2,3 ... N" /></a>
 
 The differential operator must also be discretize with the following formula:
 
@@ -35,7 +35,7 @@ which is a linear system of equations if we ignore the error on the derivative.
 
 All conditions are specified within the conditions list which followes the following template
 
-``` [['condition name', values] , ['condition name', values']] ```
+``` [['condition name', values] , ['condition name', values]] ```
 
 # Running the code
 the function solveFiniteDiff must be called to solve the equation.
@@ -44,7 +44,7 @@ __Inputs__
 - L      (length of the interval)
 - N      (number of points in the mesh)
 - conditons list
-- func   (function f in the equation)
+- func   (function rho in the equation)
 
 __Outputs__
 - list of x in mesh
